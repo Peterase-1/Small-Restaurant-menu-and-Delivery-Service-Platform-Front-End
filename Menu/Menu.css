@@ -1,69 +1,82 @@
-/* Custom styles for the menu section */
-.menu-section {
-    background-color: #f8f9fa;
-    padding: 80px 0;
+body {
+  font-family: "Poppins", sans-serif;
 }
 
-.menu-section h2 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 40px;
-    text-align: center;
-    color: #333;
+.nav-tabs .nav-link {
+  font-size: 0.9rem;
+  color: #212529;
+  border: none;
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: transparent;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
-/* Menu Category */
-.menu-category {
-    margin-bottom: 40px;
+.nav-tabs .nav-link.active {
+  color: #ffa500;
+  border-bottom: 3px solid #ffa500;
 }
 
-.category-title {
-    display: flex;
-    align-items: center;
-    font-size: 2rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
+.nav-tabs .nav-link:hover {
+  color: #ffa500;
 }
 
-.category-title .icon {
-    font-size: 1.5rem;
-    margin-right: 10px;
-    color: #FFA500;
+.card {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.075);
 }
 
-/* Menu Grid */
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    gap: 20px;
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Menu Item */
-.menu-item {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    background-color: white;
-    transition: transform 0.3s, box-shadow 0.3s;
-    text-decoration: none;
-    color: inherit;
+.card-img-top {
+  width: 60%;
+  height: 170px;
 }
 
-.menu-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.card-body {
+  padding: 20px;
+  text-align: center;
 }
 
-.item-icon {
-    font-size: 2rem;
-    color: #FFA500;
-    margin-bottom: 15px;
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #212529; /* White text */
+  margin-bottom: 10px;
 }
 
-.item-name {
-    font-size: 1rem;
-    color: #333;
-    margin: 10px 0 0;
+.card-text {
+  font-size: 0.9rem;
+  color: #adb5bd; /* Light gray for description */
+  margin-bottom: 15px;
+}
+
+.price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffa500; /* Orange for price */
+}
+
+.price::before {
+  content: "ETB ";
+}
+
+.btn-order {
+  background-color: #ffa500; /* Orange button */
+  color: #212529; /* Dark text */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn-order:hover {
+  background-color: #e69500; /* Darker orange on hover */
 }

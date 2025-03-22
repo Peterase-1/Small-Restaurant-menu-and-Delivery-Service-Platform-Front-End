@@ -1,80 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Order Markan</title>
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="order.css" />
-</head>
-<body>
-    <section id="order" class="order-section">
-        <div class="container">
-            <h2>Place Your Order</h2>
-            <form id="order-form" class="needs-validation" novalidate>
-                <!-- Delivery Option -->
-                <div class="form-group">
-                    <label for="delivery-option">Choose Delivery Option:</label>
-                    <select id="delivery-option" class="form-control" required>
-                        <option value="">Select an option</option>
-                        <option value="delivery">Delivery</option>
-                        <option value="restaurant">Restaurant Pickup</option>
-                    </select>
-                    <div class="invalid-feedback">Please select a delivery option.</div>
-                </div>
+    <title>Order Page</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #ffffff;
+        font-family: "poppins", sans-serif;
+      }
+      .container {
+      }
+      .container h1 {
+        font-weight: 720;
+        padding-bottom: 20px;
+        padding-top: 150px;
+      }
+      .order-section {
+        display: flex;
+      }
+      .alldiv {
+        border: none;
+        border-top: 1px solid #ffa500;
+        outline: none;
+        border-radius: 0;
+        padding-top: 40px;
+      }
+      .order-section img {
+        max-width: 70%;
+        height: auto;
+      }
 
-                <!-- Delivery Details (Conditional) -->
-                <div id="delivery-details" class="form-group" style="display: none;">
-                    <div class="row">
-                        <div class="col">
-                            <label for="dorm-number">Dorm Number:</label>
-                            <input type="text" id="dorm-number" class="form-control" required />
-                            <div class="invalid-feedback">Please enter your dorm number.</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Payment Method -->
-                <div class="form-group">
-                    <label for="payment-method">Choose Payment Method:</label>
-                    <select id="payment-method" class="form-control" required>
-                        <option value="">Select a payment method</option>
-                        <option value="cbe">CBE Bank</option>
-                        <option value="tele-birr">Tele Birr</option>
-                        <option value="abyssinia">Abyssinia Bank</option>
-                    </select>
-                    <div class="invalid-feedback">Please select a payment method.</div>
-                </div>
-
-                <!-- Account Number (Conditional) -->
-                <div id="account-number-group" class="form-group" style="display: none;">
-                    <label for="account-number">Account Number:</label>
-                    <input type="text" id="account-number" class="form-control" required />
-                    <div class="invalid-feedback">Please enter your account number.</div>
-                </div>
-
-                <!-- Email Input -->
-                <div class="form-group">
-                    <label for="email">Email Address:</label>
-                    <input type="email" id="email" class="form-control" required />
-                    <div class="invalid-feedback">Please enter a valid email address.</div>
-                </div>
-
-                <!-- Submit Button -->
-                <button type="submit" class="btn btn-primary">Submit Order</button>
-            </form>
-
-            <!-- Output Section -->
-            <div id="output-section" class="output-section" style="display: none;">
-                <h3>Order Details</h3>
-                <p><strong>Dorm Number:</strong> <span id="output-dorm-number"></span></p>
-                <p><strong>Account Number:</strong> <span id="output-account-number"></span></p>
-                <p><strong>Email:</strong> <span id="output-email"></span></p>
-            </div>
+      .form-group {
+        margin-bottom: 15px;
+      }
+      .form-group label {
+        font-weight: bold;
+        color: #343a40;
+      }
+      .form-control {
+        background-color: white;
+        border: none;
+        border-bottom: 1px solid #343a40;
+        outline: none;
+        border-radius: 0;
+      }
+      .hidden {
+        display: none;
+      }
+      .error-message {
+        color: red;
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
+      .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        max-width: 400px;
+        width: 100%;
+      }
+      .popup h3 {
+        margin-top: 0;
+        color: #343a40;
+      }
+      .popup p {
+        margin: 5px 0;
+        color: #343a40;
+      }
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+      }
+      .btn-primary {
+        background-color: #ffa500;
+        border-color: #ffa500;
+      }
+      .btn-primary:hover {
+        background-color: #e59400; /* Slightly darker shade for hover */
+        border-color: #e59400;
+      }
+      .btn-close-modal {
+        background-color: #ffa500;
+        border: none;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .btn-close-modal:hover {
+        background-color: #e59400;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Markan</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="../Home/Home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../Menu/Menu.html">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../About/About.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
         </div>
-    </section>
+      </div>
+    </nav>
+    <div class="container">
+      <h1 class="text-center mb-4">Order Now</h1>
 
-    <!-- Custom JS -->
-    <script src="order.js"></script>
-</body>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="row alldiv">
+            <!-- Image Section -->
+            <div class="col-md-4 mb-2 mb-md-0">
+              <img
+                src="../Images/Menu Images/Receipt.png"
+                alt="Receipt Image"
+                class="img-fluid"
+              />
+            </div>
+            <!-- Input Section -->
+            <div class="col-md-4">
+              <form id="orderForm">
+                <div class="form-group hidden" id="nameGroup">
+                  <label for="name">Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    placeholder="Enter your name"
+                  />
+                </div>
+                <div class="form-group hidden" id="idGroup">
+                  <label for="id">ID</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="id"
+                    placeholder="Enter your ID"
+                  />
+                </div>
+                <div class="form-group hidden" id="blockNumberGroup">
+                  <label for="blockNumber">Block Number</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="blockNumber"
+                    placeholder="Enter your block number"
+                  />
+                </div>
+                <div class="form-group hidden" id="dormNumberGroup">
+                  <label for="dormNumber">Dorm Number</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="dormNumber"
+                    placeholder="Enter your dorm number"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="orderOption">Order Option</label>
+                  <select class="form-control" id="orderOption">
+                    <option value="delivery">Delivery</option>
+                    <option value="pickup">Restaurant Pickup</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="paymentMethod">Payment Method</label>
+                  <select class="form-control" id="paymentMethod">
+                    <option value="CBE">CBE</option>
+                    <option value="telebirr">Telebirr</option>
+                    <option value="abisinya">Abisinya Bank</option>
+                    <option value="dashen">Dashen Bank</option>
+                    <option value="awsh">Awsh Bank</option>
+                    <option value="berhan">Berhan Bank</option>
+                    <option value="hibret">Hibret Bank</option>
+                  </select>
+                </div>
+                <div class="form-group hidden" id="accountNumberGroup">
+                  <label for="accountNumber">Account Number</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="accountNumber"
+                    placeholder="Enter account number"
+                  />
+                </div>
+                <div class="form-group hidden" id="phoneNumberGroup">
+                  <label for="phoneNumber">Phone Number</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="phoneNumber"
+                    placeholder="Enter phone number"
+                  />
+                </div>
+                <div class="error-message hidden" id="errorMessage">
+                  Please fill all required fields.
+                </div>
+                <button type="submit" class="btn btn-primary w-100">
+                  Submit Order
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Popup -->
+    <div class="popup hidden" id="popup">
+      <h3>Order Accepted</h3>
+      <p><strong>Order Number:</strong> <span id="popupOrderNumber"></span></p>
+      <p><strong>Name:</strong> <span id="popupName"></span></p>
+      <p><strong>ID:</strong> <span id="popupId"></span></p>
+      <p><strong>Block Number:</strong> <span id="popupBlockNumber"></span></p>
+      <p><strong>Dorm Number:</strong> <span id="popupDormNumber"></span></p>
+      <p><strong>Order Option:</strong> <span id="popupOrderOption"></span></p>
+      <p>
+        <strong>Payment Method:</strong> <span id="popupPaymentMethod"></span>
+      </p>
+      <p>
+        <strong>Estimated Preparation Time:</strong>
+        <span id="popupTime"></span> minutes
+      </p>
+      <p>Thank you for your order!</p>
+      <button class="btn-close-modal" onclick="closePopup()">Close</button>
+    </div>
+    <div class="overlay hidden" id="overlay"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script>
+      const orderOption = document.getElementById("orderOption");
+      const nameGroup = document.getElementById("nameGroup");
+      const idGroup = document.getElementById("idGroup");
+      const blockNumberGroup = document.getElementById("blockNumberGroup");
+      const dormNumberGroup = document.getElementById("dormNumberGroup");
+      const paymentMethod = document.getElementById("paymentMethod");
+      const accountNumberGroup = document.getElementById("accountNumberGroup");
+      const phoneNumberGroup = document.getElementById("phoneNumberGroup");
+      const errorMessage = document.getElementById("errorMessage");
+      const popup = document.getElementById("popup");
+      const overlay = document.getElementById("overlay");
+
+      orderOption.addEventListener("change", () => {
+        if (orderOption.value === "delivery") {
+          nameGroup.classList.remove("hidden");
+          idGroup.classList.remove("hidden");
+          blockNumberGroup.classList.remove("hidden");
+          dormNumberGroup.classList.remove("hidden");
+        } else {
+          nameGroup.classList.add("hidden");
+          idGroup.classList.add("hidden");
+          blockNumberGroup.classList.add("hidden");
+          dormNumberGroup.classList.add("hidden");
+        }
+      });
+
+      paymentMethod.addEventListener("change", () => {
+        if (paymentMethod.value === "telebirr") {
+          phoneNumberGroup.classList.remove("hidden");
+          accountNumberGroup.classList.add("hidden");
+        } else if (
+          paymentMethod.value !== "telebirr" &&
+          paymentMethod.value !== "CBE"
+        ) {
+          accountNumberGroup.classList.remove("hidden");
+          phoneNumberGroup.classList.add("hidden");
+        } else {
+          accountNumberGroup.classList.add("hidden");
+          phoneNumberGroup.classList.add("hidden");
+        }
+      });
+
+      document.getElementById("orderForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        const name = document.getElementById("name").value;
+        const id = document.getElementById("id").value;
+        const blockNumber = document.getElementById("blockNumber").value;
+        const dormNumber = document.getElementById("dormNumber").value;
+        const orderOptionValue = orderOption.value;
+        const paymentMethodValue = paymentMethod.value;
+        const accountNumber = document.getElementById("accountNumber").value;
+        const phoneNumber = document.getElementById("phoneNumber").value;
+
+        if (
+          (orderOptionValue === "delivery" &&
+            (!name || !id || !blockNumber || !dormNumber)) ||
+          (paymentMethodValue === "telebirr" && !phoneNumber) ||
+          (paymentMethodValue !== "telebirr" &&
+            paymentMethodValue !== "CBE" &&
+            !accountNumber)
+        ) {
+          errorMessage.classList.remove("hidden");
+          return;
+        }
+
+        errorMessage.classList.add("hidden");
+        showPopup(
+          name,
+          id,
+          blockNumber,
+          dormNumber,
+          orderOptionValue,
+          paymentMethodValue
+        );
+      });
+
+      function showPopup(
+        name,
+        id,
+        blockNumber,
+        dormNumber,
+        orderOptionValue,
+        paymentMethodValue
+      ) {
+        document.getElementById("popupName").textContent = name;
+        document.getElementById("popupId").textContent = id;
+        document.getElementById("popupBlockNumber").textContent = blockNumber;
+        document.getElementById("popupDormNumber").textContent = dormNumber;
+        document.getElementById("popupOrderOption").textContent =
+          orderOptionValue === "delivery" ? "Delivery" : "Restaurant Pickup";
+        document.getElementById("popupPaymentMethod").textContent =
+          paymentMethodValue;
+        document.getElementById("popupOrderNumber").textContent = Math.floor(
+          Math.random() * 1000000
+        );
+        document.getElementById("popupTime").textContent =
+          Math.floor(Math.random() * 30) + 10;
+
+        popup.classList.remove("hidden");
+        overlay.classList.remove("hidden");
+
+        // Auto-close popup after 10 seconds
+        setTimeout(() => {
+          closePopup();
+        }, 10000);
+      }
+
+      function closePopup() {
+        popup.classList.add("hidden");
+        overlay.classList.add("hidden");
+      }
+    </script>
+  </body>
 </html>

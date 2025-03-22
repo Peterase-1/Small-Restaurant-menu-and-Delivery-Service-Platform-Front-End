@@ -1,274 +1,770 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu - Markan</title>
-    <!-- Link to CSS -->
-    <link rel="stylesheet" href="Menu.css">
-    <!-- Link to Font Awesome for Icons -->
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modern Cafe Menu</title>
 
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Menu.css" />
+  </head>
+  <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-        <div class="container">
-          <a class="navbar-brand" href="#">Markan</a>
+      <div class="container">
+        <a class="navbar-brand" href="#">Markan</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="../Home/Home.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../Menu/Menu.html">Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../About/About.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container my-5">
+      <h1
+        class="text-center mb-5"
+        style="color: #212529; font-weight: 700; padding-top: 100px"
+      >
+        Our Menu
+      </h1>
+
+      <!-- Tabs -->
+      <ul
+        class="nav nav-tabs justify-content-center mb-4"
+        id="menuTabs"
+        role="tablist"
+      >
+        <li class="nav-item" role="presentation">
           <button
-            class="navbar-toggler"
+            class="nav-link active"
+            id="burgers-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#burgers"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
+            role="tab"
+            aria-controls="burgers"
+            aria-selected="true"
           >
-            <span class="navbar-toggler-icon"></span>
+            Burgers
           </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link active" href="../Home/Home.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../Menu/Menu.html">Menu</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../About/About.html">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#contact">Contact</a>
-              </li>
-            </ul>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="pizza-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#pizza"
+            type="button"
+            role="tab"
+            aria-controls="pizza"
+            aria-selected="false"
+          >
+            Pizza
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="sushi-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#sushi"
+            type="button"
+            role="tab"
+            aria-controls="sushi"
+            aria-selected="false"
+          >
+            Cake
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="desserts-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#desserts"
+            type="button"
+            role="tab"
+            aria-controls="desserts"
+            aria-selected="false"
+          >
+            Desserts
+          </button>
+        </li>
+      </ul>
+
+      <!-- Tab Content -->
+      <div class="tab-content" id="menuTabsContent">
+        <!-- Burgers Tab -->
+        <div
+          class="tab-pane fade show active"
+          id="burgers"
+          role="tabpanel"
+          aria-labelledby="burgers-tab"
+        >
+          <div class="row">
+            <!-- Burger 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="../Images/Menu Images/B1.png"
+                  class="card-img-top"
+                  alt="Burger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Burger</h5>
+                  <p class="card-text">
+                    Juicy beef patty with fresh veggies and cheese.
+                  </p>
+                  <p class="price">299</p>
+                  <button
+                    onclick="window.location.href='../Order/order.html'"
+                    class="btn btn-order"
+                  >
+                    Order Now
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Burger 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="../Images/Menu Images/B2.png"
+                  class="card-img-top"
+                  alt="Burger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Burger</h5>
+                  <p class="card-text">
+                    Juicy beef patty with fresh veggies and cheese.
+                  </p>
+                  <p class="price">349</p>
+                  <button
+                    onclick="window.location.href='../Order/order.html'"
+                    class="btn btn-order"
+                  >
+                    Order Now
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Burger 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="../Images/Menu Images/B3.png"
+                  class="card-img-top"
+                  alt="Burger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Burger</h5>
+                  <p class="card-text">
+                    Juicy beef patty with fresh veggies and cheese.
+                  </p>
+                  <p class="price">330</p>
+                  <button
+                    onclick="window.location.href='../Order/order.html'"
+                    class="btn btn-order"
+                  >
+                    Order Now
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Burger 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="../Images/Menu Images/B4.png"
+                  class="card-img-top"
+                  alt="Burger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Burger</h5>
+                  <p class="card-text">
+                    Juicy beef patty with fresh veggies and cheese.
+                  </p>
+                  <p class="price">250</p>
+                  <button
+                    onclick="window.location.href='../Order/order.html'"
+                    class="btn btn-order"
+                  >
+                    Order Now
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Burger 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="../Images/Menu Images/B5.png"
+                  class="card-img-top"
+                  alt="Burger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Burger</h5>
+                  <p class="card-text">
+                    Juicy beef patty with fresh veggies and cheese.
+                  </p>
+                  <p class="price">500</p>
+                  <button
+                    onclick="window.location.href='../Order/order.html'"
+                    class="btn btn-order"
+                  >
+                    Order Now
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Burger 2 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="../Images/Menu Images/B6.png"
+                  class="card-img-top"
+                  alt="Cheeseburger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Cheeseburger</h5>
+                  <p class="card-text">Double beef patty with melted cheese.</p>
+                  <p class="price">450</p>
+                  <button
+                    onclick="window.location.href='../Order/order.html'"
+                    class="btn btn-order"
+                  >
+                    Order Now
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Burger 2 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="../Images/Menu Images/B7.png"
+                  class="card-img-top"
+                  alt="Cheeseburger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Cheeseburger</h5>
+                  <p class="card-text">Double beef patty with melted cheese.</p>
+                  <p class="price">469</p>
+                  <button
+                    onclick="window.location.href='../Order/order.html'"
+                    class="btn btn-order"
+                  >
+                    Order Now
+                  </button>
+                </div>
+              </div>
+            </div>
+            <!-- Burger 2 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="../Images/Menu Images/B8.png"
+                  class="card-img-top"
+                  alt="Cheeseburger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Cheeseburger</h5>
+                  <p class="card-text">Double beef patty with melted cheese.</p>
+                  <p class="price">499</p>
+                  <button
+                    onclick="window.location.href='../Order/order.html'"
+                    class="btn btn-order"
+                  >
+                    Order Now
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </nav>
 
+        <!-- Pizza Tab -->
+        <div
+          class="tab-pane fade"
+          id="pizza"
+          role="tabpanel"
+          aria-labelledby="pizza-tab"
+        >
+          <div class="row">
+            <!-- Pizza 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="https://source.unsplash.com/400x300/?pizza"
+                  class="card-img-top"
+                  alt="Pizza"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Margherita Pizza</h5>
+                  <p class="card-text">
+                    Fresh mozzarella, tomatoes, and basil.
+                  </p>
+                  <p class="price">8.99</p>
+                  <button class="btn btn-order">Order Now</button>
+                </div>
+              </div>
+            </div>
+            <!-- Burger 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="https://source.unsplash.com/400x300/?burger"
+                  class="card-img-top"
+                  alt="Burger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Burger</h5>
+                  <p class="card-text">
+                    Juicy beef patty with fresh veggies and cheese.
+                  </p>
+                  <p class="price">5.99</p>
+                  <button class="btn btn-order">Order Now</button>
+                </div>
+              </div>
+            </div>
+            <!-- Burger 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="https://source.unsplash.com/400x300/?burger"
+                  class="card-img-top"
+                  alt="Burger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Burger</h5>
+                  <p class="card-text">
+                    Juicy beef patty with fresh veggies and cheese.
+                  </p>
+                  <p class="price">5.99</p>
+                  <button class="btn btn-order">Order Now</button>
+                </div>
+              </div>
+            </div>
+            <!-- Burger 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="https://source.unsplash.com/400x300/?burger"
+                  class="card-img-top"
+                  alt="Burger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Burger</h5>
+                  <p class="card-text">
+                    Juicy beef patty with fresh veggies and cheese.
+                  </p>
+                  <p class="price">5.99</p>
+                  <button class="btn btn-order">Order Now</button>
+                </div>
+              </div>
+            </div>
+            <!-- Burger 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="https://source.unsplash.com/400x300/?burger"
+                  class="card-img-top"
+                  alt="Burger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Burger</h5>
+                  <p class="card-text">
+                    Juicy beef patty with fresh veggies and cheese.
+                  </p>
+                  <p class="price">5.99</p>
+                  <button class="btn btn-order">Order Now</button>
+                </div>
+              </div>
+            </div>
+            <!-- Burger 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="https://source.unsplash.com/400x300/?burger"
+                  class="card-img-top"
+                  alt="Burger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Burger</h5>
+                  <p class="card-text">
+                    Juicy beef patty with fresh veggies and cheese.
+                  </p>
+                  <p class="price">5.99</p>
+                  <button class="btn btn-order">Order Now</button>
+                </div>
+              </div>
+            </div>
+            <!-- Burger 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="https://source.unsplash.com/400x300/?burger"
+                  class="card-img-top"
+                  alt="Burger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Burger</h5>
+                  <p class="card-text">
+                    Juicy beef patty with fresh veggies and cheese.
+                  </p>
+                  <p class="price">5.99</p>
+                  <button class="btn btn-order">Order Now</button>
+                </div>
+              </div>
+            </div>
 
-    <section id="menu" class="menu-section">
-        <div class="container">
-            <h2 class="text-center">Our Menu</h2>
-            <!-- Pizza Section -->
-            <div class="menu-category">
-                <h3 class="category-title">
-                    <i class="fas fa-pizza-slice icon"></i>
-                    Pizza
-                </h3>
-                <div class="menu-grid">
-                    <!-- Repeat this block 6 times for each category -->
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-pizza-slice item-icon"></i>
-                        <p class="item-name">Margherita Pizza</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-pizza-slice item-icon"></i>
-                        <p class="item-name">Pepperoni Pizza</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-pizza-slice item-icon"></i>
-                        <p class="item-name">Vegetarian Pizza</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-pizza-slice item-icon"></i>
-                        <p class="item-name">Hawaiian Pizza</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-pizza-slice item-icon"></i>
-                        <p class="item-name">BBQ Chicken Pizza</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-pizza-slice item-icon"></i>
-                        <p class="item-name">Buffalo Pizza</p>
-                    </a>
-                    <!-- End of block -->
+            <!-- Pizza 2 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="https://source.unsplash.com/400x300/?pepperoni-pizza"
+                  class="card-img-top"
+                  alt="Pepperoni Pizza"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Pepperoni Pizza</h5>
+                  <p class="card-text">Classic pepperoni with extra cheese.</p>
+                  <p class="price">9.99</p>
+                  <button class="btn btn-order">Order Now</button>
                 </div>
+              </div>
             </div>
-            <!-- Burger Section -->
-            <div class="menu-category">
-                <h3 class="category-title">
-                    <i class="fas fa-hamburger icon"></i>
-                    Burger
-                </h3>
-                <div class="menu-grid">
-                    <!-- Repeat this block 6 times for each category -->
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-hamburger item-icon"></i>
-                        <p class="item-name">Classic Cheeseburger</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-hamburger item-icon"></i>
-                        <p class="item-name">Bacon Burger</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-hamburger item-icon"></i>
-                        <p class="item-name">Veggie Burger</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-hamburger item-icon"></i>
-                        <p class="item-name">Mushroom Swiss Burger</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-hamburger item-icon"></i>
-                        <p class="item-name">Double Cheeseburger</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-hamburger item-icon"></i>
-                        <p class="item-name">Spicy Chicken Burger</p>
-                    </a>
-                    <!-- End of block -->
-                </div>
-            </div>
-            <!-- Pasta Section -->
-            <div class="menu-category">
-                <h3 class="category-title">
-                    <i class="fas fa-utensils icon"></i>
-                    Pasta
-                </h3>
-                <div class="menu-grid">
-                    <!-- Repeat this block 6 times for each category -->
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-utensils item-icon"></i>
-                        <p class="item-name">Spaghetti Carbonara</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-utensils item-icon"></i>
-                        <p class="item-name">Fettuccine Alfredo</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-utensils item-icon"></i>
-                        <p class="item-name">Penne Arrabbiata</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-utensils item-icon"></i>
-                        <p class="item-name">Lasagna</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-utensils item-icon"></i>
-                        <p class="item-name">Ravioli</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-utensils item-icon"></i>
-                        <p class="item-name">Mac and Cheese</p>
-                    </a>
-                    <!-- End of block -->
-                </div>
-            </div>
-            <!-- Salad Section -->
-            <div class="menu-category">
-                <h3 class="category-title">
-                    <i class="fas fa-leaf icon"></i>
-                    Salad
-                </h3>
-                <div class="menu-grid">
-                    <!-- Repeat this block 6 times for each category -->
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-leaf item-icon"></i>
-                        <p class="item-name">Caesar Salad</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-leaf item-icon"></i>
-                        <p class="item-name">Greek Salad</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-leaf item-icon"></i>
-                        <p class="item-name">Cobb Salad</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-leaf item-icon"></i>
-                        <p class="item-name">Caprese Salad</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-leaf item-icon"></i>
-                        <p class="item-name">Garden Salad</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-leaf item-icon"></i>
-                        <p class="item-name">Spinach Salad</p>
-                    </a>
-                    <!-- End of block -->
-                </div>
-            </div>
-            <!-- Sushi Section -->
-            <div class="menu-category">
-                <h3 class="category-title">
-                    <i class="fas fa-fish icon"></i>
-                    Sushi
-                </h3>
-                <div class="menu-grid">
-                    <!-- Repeat this block 6 times for each category -->
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-fish item-icon"></i>
-                        <p class="item-name">California Roll</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-fish item-icon"></i>
-                        <p class="item-name">Spicy Tuna Roll</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-fish item-icon"></i>
-                        <p class="item-name">Dragon Roll</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-fish item-icon"></i>
-                        <p class="item-name">Rainbow Roll</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-fish item-icon"></i>
-                        <p class="item-name">Salmon Nigiri</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-fish item-icon"></i>
-                        <p class="item-name">Tempura Roll</p>
-                    </a>
-                    <!-- End of block -->
-                </div>
-            </div>
-            <!-- Dessert Section -->
-            <div class="menu-category">
-                <h3 class="category-title">
-                    <i class="fas fa-ice-cream icon"></i>
-                    Dessert
-                </h3>
-                <div class="menu-grid">
-                    <!-- Repeat this block 6 times for each category -->
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-ice-cream item-icon"></i>
-                        <p class="item-name">Chocolate Lava Cake</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-ice-cream item-icon"></i>
-                        <p class="item-name">Cheesecake</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-ice-cream item-icon"></i>
-                        <p class="item-name">Tiramisu</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-ice-cream item-icon"></i>
-                        <p class="item-name">Apple Pie</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-ice-cream item-icon"></i>
-                        <p class="item-name">Ice Cream Sundae</p>
-                    </a>
-                    <a href="../Order/order.html" class="menu-item">
-                        <i class="fas fa-ice-cream item-icon"></i>
-                        <p class="item-name">Brownie</p>
-                    </a>
-                    <!-- End of block -->
-                </div>
-            </div>
+          </div>
         </div>
-    </section>
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
-  
-</body>
+
+        <!-- Sushi Tab -->
+        <div
+          class="tab-pane fade"
+          id="sushi"
+          role="tabpanel"
+          aria-labelledby="sushi-tab"
+        >
+          <div class="row">
+            <!-- Sushi 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="https://source.unsplash.com/400x300/?sushi"
+                  class="card-img-top"
+                  alt="Sushi"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Sushi Platter</h5>
+                  <p class="card-text">Assorted sushi rolls with soy sauce.</p>
+                  <p class="price">12.99</p>
+                  <button class="btn btn-order">Order Now</button>
+                </div>
+              </div>
+            </div>
+            <!-- Burger 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="https://source.unsplash.com/400x300/?burger"
+                  class="card-img-top"
+                  alt="Burger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Burger</h5>
+                  <p class="card-text">
+                    Juicy beef patty with fresh veggies and cheese.
+                  </p>
+                  <p class="price">5.99</p>
+                  <button class="btn btn-order">Order Now</button>
+                </div>
+              </div>
+            </div>
+            <!-- Burger 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="https://source.unsplash.com/400x300/?burger"
+                  class="card-img-top"
+                  alt="Burger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Burger</h5>
+                  <p class="card-text">
+                    Juicy beef patty with fresh veggies and cheese.
+                  </p>
+                  <p class="price">5.99</p>
+                  <button class="btn btn-order">Order Now</button>
+                </div>
+              </div>
+            </div>
+            <!-- Burger 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="https://source.unsplash.com/400x300/?burger"
+                  class="card-img-top"
+                  alt="Burger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Burger</h5>
+                  <p class="card-text">
+                    Juicy beef patty with fresh veggies and cheese.
+                  </p>
+                  <p class="price">5.99</p>
+                  <button class="btn btn-order">Order Now</button>
+                </div>
+              </div>
+            </div>
+            <!-- Burger 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="https://source.unsplash.com/400x300/?burger"
+                  class="card-img-top"
+                  alt="Burger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Burger</h5>
+                  <p class="card-text">
+                    Juicy beef patty with fresh veggies and cheese.
+                  </p>
+                  <p class="price">5.99</p>
+                  <button class="btn btn-order">Order Now</button>
+                </div>
+              </div>
+            </div>
+            <!-- Burger 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="https://source.unsplash.com/400x300/?burger"
+                  class="card-img-top"
+                  alt="Burger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Burger</h5>
+                  <p class="card-text">
+                    Juicy beef patty with fresh veggies and cheese.
+                  </p>
+                  <p class="price">5.99</p>
+                  <button class="btn btn-order">Order Now</button>
+                </div>
+              </div>
+            </div>
+            <!-- Burger 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="https://source.unsplash.com/400x300/?burger"
+                  class="card-img-top"
+                  alt="Burger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Burger</h5>
+                  <p class="card-text">
+                    Juicy beef patty with fresh veggies and cheese.
+                  </p>
+                  <p class="price">5.99</p>
+                  <button class="btn btn-order">Order Now</button>
+                </div>
+              </div>
+            </div>
+            <!-- Sushi 2 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="https://source.unsplash.com/400x300/?sushi-roll"
+                  class="card-img-top"
+                  alt="Sushi Roll"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Sushi Roll</h5>
+                  <p class="card-text">Fresh salmon and avocado roll.</p>
+                  <p class="price">10.99</p>
+                  <button class="btn btn-order">Order Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Desserts Tab -->
+        <div
+          class="tab-pane fade"
+          id="desserts"
+          role="tabpanel"
+          aria-labelledby="desserts-tab"
+        >
+          <div class="row">
+            <!-- Dessert 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="https://source.unsplash.com/400x300/?chocolate-cake"
+                  class="card-img-top"
+                  alt="Chocolate Cake"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Chocolate Cake</h5>
+                  <p class="card-text">
+                    Decadent chocolate cake with frosting.
+                  </p>
+                  <p class="price">4.99</p>
+                  <button class="btn btn-order">Order Now</button>
+                </div>
+              </div>
+            </div>
+            <!-- Burger 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="https://source.unsplash.com/400x300/?burger"
+                  class="card-img-top"
+                  alt="Burger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Burger</h5>
+                  <p class="card-text">
+                    Juicy beef patty with fresh veggies and cheese.
+                  </p>
+                  <p class="price">5.99</p>
+                  <button class="btn btn-order">Order Now</button>
+                </div>
+              </div>
+            </div>
+            <!-- Burger 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="https://source.unsplash.com/400x300/?burger"
+                  class="card-img-top"
+                  alt="Burger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Burger</h5>
+                  <p class="card-text">
+                    Juicy beef patty with fresh veggies and cheese.
+                  </p>
+                  <p class="price">5.99</p>
+                  <button class="btn btn-order">Order Now</button>
+                </div>
+              </div>
+            </div>
+            <!-- Burger 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="https://source.unsplash.com/400x300/?burger"
+                  class="card-img-top"
+                  alt="Burger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Burger</h5>
+                  <p class="card-text">
+                    Juicy beef patty with fresh veggies and cheese.
+                  </p>
+                  <p class="price">5.99</p>
+                  <button class="btn btn-order">Order Now</button>
+                </div>
+              </div>
+            </div>
+            <!-- Burger 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="https://source.unsplash.com/400x300/?burger"
+                  class="card-img-top"
+                  alt="Burger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Burger</h5>
+                  <p class="card-text">
+                    Juicy beef patty with fresh veggies and cheese.
+                  </p>
+                  <p class="price">5.99</p>
+                  <button class="btn btn-order">Order Now</button>
+                </div>
+              </div>
+            </div>
+            <!-- Burger 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="https://source.unsplash.com/400x300/?burger"
+                  class="card-img-top"
+                  alt="Burger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Burger</h5>
+                  <p class="card-text">
+                    Juicy beef patty with fresh veggies and cheese.
+                  </p>
+                  <p class="price">5.99</p>
+                  <button class="btn btn-order">Order Now</button>
+                </div>
+              </div>
+            </div>
+            <!-- Burger 1 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="https://source.unsplash.com/400x300/?burger"
+                  class="card-img-top"
+                  alt="Burger"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Classic Burger</h5>
+                  <p class="card-text">
+                    Juicy beef patty with fresh veggies and cheese.
+                  </p>
+                  <p class="price">5.99</p>
+                  <button class="btn btn-order">Order Now</button>
+                </div>
+              </div>
+            </div>
+            <!-- Dessert 2 -->
+            <div class="col-md-3 mb-4">
+              <div class="card">
+                <img
+                  src="https://source.unsplash.com/400x300/?cheesecake"
+                  class="card-img-top"
+                  alt="Cheesecake"
+                />
+                <div class="card-body">
+                  <h5 class="card-title">Cheesecake</h5>
+                  <p class="card-text">Creamy cheesecake with berry topping.</p>
+                  <p class="price">5.99</p>
+                  <button class="btn btn-order">Order Now</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
