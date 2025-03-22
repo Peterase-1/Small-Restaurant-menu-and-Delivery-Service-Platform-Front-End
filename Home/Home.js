@@ -1,3 +1,60 @@
+const heroHeading = document.getElementById('hero-heading');
+const heroDescription = document.getElementById('hero-description');
+const heroImage = document.getElementById('hero-image');
+
+const texts = [
+  { heading: "Welcome to Markan", description: "Delicious food delivered to your doorstep. Order now and enjoy the best meals in University!" },
+  { heading: "Fresh Ingredients", description: "We use only the freshest ingredients to prepare your meals. Taste the difference!" },
+  { heading: "Fast Delivery", description: "Get your food delivered in no time. We guarantee fast and reliable service!" }
+];
+
+const images = [
+  "../Images/Home Page Hero/Sliding Image 2 (2).png",
+  "../Images/Home Page Hero/Sliding Image 3 (2).png",
+  "../Images/Home Page Hero/Sliding Image 4.png"
+];
+
+let currentIndex = 0;
+
+function changeContent() {
+  // Add "out" animation classes to text and image
+  heroHeading.classList.add('animate-text');
+  heroDescription.classList.add('animate-text');
+  heroImage.classList.add('animate-image-out');
+
+  // Wait for the "out" animation to complete before changing content
+  setTimeout(() => {
+    // Update content
+    currentIndex = (currentIndex + 1) % texts.length;
+    heroHeading.textContent = texts[currentIndex].heading;
+    heroDescription.textContent = texts[currentIndex].description;
+    heroImage.src = images[currentIndex];
+
+    // Remove "out" animation classes and add "in" animation classes
+    heroHeading.classList.remove('animate-text');
+    heroDescription.classList.remove('animate-text');
+    heroImage.classList.remove('animate-image-out');
+
+    heroHeading.classList.add('animate-text');
+    heroDescription.classList.add('animate-text');
+    heroImage.classList.add('animate-image-in');
+
+    // Remove "in" animation classes after the content reappears
+    setTimeout(() => {
+      heroHeading.classList.remove('animate-text');
+      heroDescription.classList.remove('animate-text');
+      heroImage.classList.remove('animate-image-in');
+    }, 750); // Half of the animation duration (1.5s)
+  }, 750); // Half of the animation duration (1.5s)
+}
+
+// Change content every 5 seconds
+setInterval(changeContent, 8000);
+
+
+
+
+
 // Get all audio elements
     const welcomeAudio = document.getElementById('welcomeAudio');
     const menuExitAudio = document.getElementById('menuExitAudio');
