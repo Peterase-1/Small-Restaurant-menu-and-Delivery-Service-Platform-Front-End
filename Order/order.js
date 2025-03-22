@@ -1,58 +1,112 @@
-// Show/hide delivery details based on delivery option
-const deliveryOption = document.getElementById('delivery-option');
-const deliveryDetails = document.getElementById('delivery-details');
 
-deliveryOption.addEventListener('change', function () {
-    if (this.value === 'delivery') {
-        deliveryDetails.style.display = 'block';
-    } else {
-        deliveryDetails.style.display = 'none';
-    }
+const orderOption = document.getElementById("orderOption");
+const nameGroup = document.getElementById("nameGroup");
+const idGroup = document.getElementById("idGroup");
+const blockNumberGroup = document.getElementById("blockNumberGroup");
+const dormNumberGroup = document.getElementById("dormNumberGroup");
+const paymentMethod = document.getElementById("paymentMethod");
+const accountNumberGroup = document.getElementById("accountNumberGroup");
+const phoneNumberGroup = document.getElementById("phoneNumberGroup");
+const errorMessage = document.getElementById("errorMessage");
+const popup = document.getElementById("popup");
+const overlay = document.getElementById("overlay");
+
+orderOption.addEventListener("change", () => {
+if (orderOption.value === "delivery") {
+    nameGroup.classList.remove("hidden");
+    idGroup.classList.remove("hidden");
+    blockNumberGroup.classList.remove("hidden");
+    dormNumberGroup.classList.remove("hidden");
+} else {
+    nameGroup.classList.add("hidden");
+    idGroup.classList.add("hidden");
+    blockNumberGroup.classList.add("hidden");
+    dormNumberGroup.classList.add("hidden");
+}
 });
 
-// Show/hide account number field based on payment method
-const paymentMethod = document.getElementById('payment-method');
-const accountNumberGroup = document.getElementById('account-number-group');
-
-paymentMethod.addEventListener('change', function () {
-    if (this.value === 'cbe' || this.value === 'abyssinia') {
-        accountNumberGroup.style.display = 'block';
-    } else {
-        accountNumberGroup.style.display = 'none';
-    }
+paymentMethod.addEventListener("change", () => {
+if (paymentMethod.value === "telebirr") {
+    phoneNumberGroup.classList.remove("hidden");
+    accountNumberGroup.classList.add("hidden");
+} else if (
+    paymentMethod.value !== "telebirr" &&
+    paymentMethod.value !== "CBE"
+) {
+    accountNumberGroup.classList.remove("hidden");
+    phoneNumberGroup.classList.add("hidden");
+} else {
+    accountNumberGroup.classList.add("hidden");
+    phoneNumberGroup.classList.add("hidden");
+}
 });
 
-// Handle form submission
-const orderForm = document.getElementById('order-form');
-const outputSection = document.getElementById('output-section');
-const outputDormNumber = document.getElementById('output-dorm-number');
-const outputAccountNumber = document.getElementById('output-account-number');
-const outputEmail = document.getElementById('output-email');
+document.getElementById("orderForm").addEventListener("submit", (e) => {
+e.preventDefault();
+const name = document.getElementById("name").value;
+const id = document.getElementById("id").value;
+const blockNumber = document.getElementById("blockNumber").value;
+const dormNumber = document.getElementById("dormNumber").value;
+const orderOptionValue = orderOption.value;
+const paymentMethodValue = paymentMethod.value;
+const accountNumber = document.getElementById("accountNumber").value;
+const phoneNumber = document.getElementById("phoneNumber").value;
 
-orderForm.addEventListener('submit', function (e) {
-    e.preventDefault(); // Prevent form submission
+if (
+    (orderOptionValue === "delivery" &&
+    (!name || !id || !blockNumber || !dormNumber)) ||
+    (paymentMethodValue === "telebirr" && !phoneNumber) ||
+    (paymentMethodValue !== "telebirr" &&
+    paymentMethodValue !== "CBE" &&
+    !accountNumber)
+) {
+    errorMessage.classList.remove("hidden");
+    return;
+}
 
-    // Check if all required fields are filled
-    if (!orderForm.checkValidity()) {
-        e.stopPropagation(); // Stop form submission
-        orderForm.classList.add('was-validated'); // Show validation errors
-        return;
-    }
-
-    // Get form values
-    const dormNumber = document.getElementById('dorm-number').value;
-    const accountNumber = document.getElementById('account-number').value;
-    const email = document.getElementById('email').value;
-
-    // Display output
-    outputDormNumber.textContent = dormNumber ;
-    outputAccountNumber.textContent = accountNumber;
-    outputEmail.textContent = email+ "\nSuceesfull";
-    outputSection.style.display = 'block';
-
-    // Reset the form
-    orderForm.reset();
-    orderForm.classList.remove('was-validated');
-    deliveryDetails.style.display = 'none';
-    accountNumberGroup.style.display = 'none';
+errorMessage.classList.add("hidden");
+showPopup(
+    name,
+    id,
+    blockNumber,
+    dormNumber,
+    orderOptionValue,
+    paymentMethodValue
+);
 });
+
+function showPopup(
+name,
+id,
+blockNumber,
+dormNumber,
+orderOptionValue,
+paymentMethodValue
+) {
+document.getElementById("popupName").textContent = name;
+document.getElementById("popupId").textContent = id;
+document.getElementById("popupBlockNumber").textContent = blockNumber;
+document.getElementById("popupDormNumber").textContent = dormNumber;
+document.getElementById("popupOrderOption").textContent =
+    orderOptionValue === "delivery" ? "Delivery" : "Restaurant Pickup";
+document.getElementById("popupPaymentMethod").textContent =
+    paymentMethodValue;
+document.getElementById("popupOrderNumber").textContent = Math.floor(
+    Math.random() * 1000000
+);
+document.getElementById("popupTime").textContent =
+    Math.floor(Math.random() * 30) + 10;
+
+popup.classList.remove("hidden");
+overlay.classList.remove("hidden");
+
+// Auto-close popup after 10 seconds
+setTimeout(() => {
+    closePopup();
+}, 10000);
+}
+
+function closePopup() {
+popup.classList.add("hidden");
+overlay.classList.add("hidden");
+}
