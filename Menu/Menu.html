@@ -3,8 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Modern Cafe Menu</title>
-
+    <title>Menu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lacquer&display=swap"
+      rel="stylesheet"
+    />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -14,7 +19,9 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#">Markan</a>
+        <a class="navbar-brand" href="#" style="font-family: 'Lacquer'"
+          >Luminary Fast Foods</a
+        >
         <button
           class="navbar-toggler"
           type="button"
@@ -26,10 +33,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link active" href="../Home/Home.html">Home</a>
+              <a class="nav-link" href="../Home/Home.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../Menu/Menu.html">Menu</a>
+              <a class="nav-link active" href="../Menu/Menu.html">Menu</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="../About/About.html">About</a>
@@ -41,14 +48,31 @@
         </div>
       </div>
     </nav>
-    <div class="container my-5">
-      <h1
-        class="text-center mb-5"
-        style="color: #212529; font-weight: 700; padding-top: 100px"
-      >
-        Our Menu
-      </h1>
 
+
+    <!-- modal -->
+    <div class="modal fade" id="responseModal" tabindex="-1">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-body text-center p-4">
+            <h5 id="responseTitle" class="mb-3"></h5>
+            <p id="responseMessage"></p>
+            <button type="button" class="btn btn-secondary mt-2" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Our Menu Title -->
+    <div class="container pt-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center pt-5">
+          <h1 class="display-5 fw-bold mb-0 pt-5">Our Menu</h1>
+        </div>
+      </div>
+    </div>
+    <div class="container my-5">
       <!-- Tabs -->
       <ul
         class="nav nav-tabs justify-content-center mb-4"
@@ -94,7 +118,7 @@
             aria-controls="sushi"
             aria-selected="false"
           >
-            Cake
+            Pasta
           </button>
         </li>
         <li class="nav-item" role="presentation">
@@ -108,7 +132,7 @@
             aria-controls="desserts"
             aria-selected="false"
           >
-            Desserts
+            Fruit
           </button>
         </li>
       </ul>
@@ -136,6 +160,34 @@
                   <p class="card-text">
                     Juicy beef patty with fresh veggies and cheese.
                   </p>
+                  <button style="color: rgb(174, 177, 180);" class="btn btn-sm  rate-btn">
+                    Rate This Item ★
+                  </button>
+
+                  <!-- Rating Section (hidden by default) -->
+                  <div class="rating-section">
+                    <div class="mb-2">
+                      
+                      <input type="text" class="form-control rater-name" placeholder="Enter Your Name" />
+                    </div>
+                    <div class="mb-3">
+
+                      <div class="d-flex justify-content-between">
+                        <span class="star" data-value="1">☆</span>
+                        <span class="star" data-value="2">☆</span>
+                        <span class="star" data-value="3">☆</span>
+                        <span class="star" data-value="4">☆</span>
+                        <span class="star" data-value="5">☆</span>
+                        <button style="background-color: #ffa500;" class="btn  submit-rating">
+                          Rate
+                        </button>
+                      </div>
+                      
+                      <input type="hidden" class="selected-rating" value="0" />
+                     
+                    </div>
+                   
+                  </div>
                   <p class="price">299</p>
                   <button
                     onclick="window.location.href='../Order/order.html'"
@@ -159,6 +211,33 @@
                   <p class="card-text">
                     Juicy beef patty with fresh veggies and cheese.
                   </p>
+                  <button style="color: rgb(174, 177, 180);" class="btn btn-sm  rate-btn">
+                    Rate This Item ★
+                  </button>
+                  <!-- Rating Section (hidden by default) -->
+                  <div class="rating-section">
+                    <div class="mb-2">
+                      
+                      <input type="text" class="form-control rater-name" placeholder="Enter Your Name" />
+                    </div>
+                    <div class="mb-3">
+
+                      <div class="d-flex justify-content-between">
+                        <span class="star" data-value="1">☆</span>
+                        <span class="star" data-value="2">☆</span>
+                        <span class="star" data-value="3">☆</span>
+                        <span class="star" data-value="4">☆</span>
+                        <span class="star" data-value="5">☆</span>
+                        <button style="background-color: #ffa500;" class="btn  submit-rating">
+                          Rate
+                        </button>
+                      </div>
+                      
+                      <input type="hidden" class="selected-rating" value="0" />
+                     
+                    </div>
+                   
+                  </div>
                   <p class="price">349</p>
                   <button
                     onclick="window.location.href='../Order/order.html'"
@@ -182,6 +261,33 @@
                   <p class="card-text">
                     Juicy beef patty with fresh veggies and cheese.
                   </p>
+                  <button style="color: rgb(174, 177, 180);" class="btn btn-sm  rate-btn">
+                    Rate This Item ★
+                  </button>
+                  <!-- Rating Section (hidden by default) -->
+                  <div class="rating-section">
+                    <div class="mb-2">
+                      
+                      <input type="text" class="form-control rater-name" placeholder="Enter Your Name" />
+                    </div>
+                    <div class="mb-3">
+
+                      <div class="d-flex justify-content-between">
+                        <span class="star" data-value="1">☆</span>
+                        <span class="star" data-value="2">☆</span>
+                        <span class="star" data-value="3">☆</span>
+                        <span class="star" data-value="4">☆</span>
+                        <span class="star" data-value="5">☆</span>
+                        <button style="background-color: #ffa500;" class="btn  submit-rating">
+                          Rate
+                        </button>
+                      </div>
+                      
+                      <input type="hidden" class="selected-rating" value="0" />
+                     
+                    </div>
+                   
+                  </div>
                   <p class="price">330</p>
                   <button
                     onclick="window.location.href='../Order/order.html'"
@@ -205,6 +311,33 @@
                   <p class="card-text">
                     Juicy beef patty with fresh veggies and cheese.
                   </p>
+                  <button style="color: rgb(174, 177, 180);" class="btn btn-sm  rate-btn">
+                    Rate This Item ★
+                  </button>
+                  <!-- Rating Section (hidden by default) -->
+                  <div class="rating-section">
+                    <div class="mb-2">
+                      
+                      <input type="text" class="form-control rater-name" placeholder="Enter Your Name" />
+                    </div>
+                    <div class="mb-3">
+
+                      <div class="d-flex justify-content-between">
+                        <span class="star" data-value="1">☆</span>
+                        <span class="star" data-value="2">☆</span>
+                        <span class="star" data-value="3">☆</span>
+                        <span class="star" data-value="4">☆</span>
+                        <span class="star" data-value="5">☆</span>
+                        <button style="background-color: #ffa500;" class="btn  submit-rating">
+                          Rate
+                        </button>
+                      </div>
+                      
+                      <input type="hidden" class="selected-rating" value="0" />
+                     
+                    </div>
+                   
+                  </div>
                   <p class="price">250</p>
                   <button
                     onclick="window.location.href='../Order/order.html'"
@@ -228,6 +361,33 @@
                   <p class="card-text">
                     Juicy beef patty with fresh veggies and cheese.
                   </p>
+                  <button style="color: rgb(174, 177, 180);" class="btn btn-sm  rate-btn">
+                    Rate This Item ★
+                  </button>
+                  <!-- Rating Section (hidden by default) -->
+                  <div class="rating-section">
+                    <div class="mb-2">
+                      
+                      <input type="text" class="form-control rater-name" placeholder="Enter Your Name" />
+                    </div>
+                    <div class="mb-3">
+
+                      <div class="d-flex justify-content-between">
+                        <span class="star" data-value="1">☆</span>
+                        <span class="star" data-value="2">☆</span>
+                        <span class="star" data-value="3">☆</span>
+                        <span class="star" data-value="4">☆</span>
+                        <span class="star" data-value="5">☆</span>
+                        <button style="background-color: #ffa500;" class="btn  submit-rating">
+                          Rate
+                        </button>
+                      </div>
+                      
+                      <input type="hidden" class="selected-rating" value="0" />
+                     
+                    </div>
+                   
+                  </div>
                   <p class="price">500</p>
                   <button
                     onclick="window.location.href='../Order/order.html'"
@@ -249,6 +409,33 @@
                 <div class="card-body">
                   <h5 class="card-title">Cheeseburger</h5>
                   <p class="card-text">Double beef patty with melted cheese.</p>
+                  <button style="color: rgb(174, 177, 180);" class="btn btn-sm  rate-btn">
+                    Rate This Item ★
+                  </button>
+                  <!-- Rating Section (hidden by default) -->
+                  <div class="rating-section">
+                    <div class="mb-2">
+                      
+                      <input type="text" class="form-control rater-name" placeholder="Enter Your Name" />
+                    </div>
+                    <div class="mb-3">
+
+                      <div class="d-flex justify-content-between">
+                        <span class="star" data-value="1">☆</span>
+                        <span class="star" data-value="2">☆</span>
+                        <span class="star" data-value="3">☆</span>
+                        <span class="star" data-value="4">☆</span>
+                        <span class="star" data-value="5">☆</span>
+                        <button style="background-color: #ffa500;" class="btn  submit-rating">
+                          Rate
+                        </button>
+                      </div>
+                      
+                      <input type="hidden" class="selected-rating" value="0" />
+                     
+                    </div>
+                   
+                  </div>
                   <p class="price">450</p>
                   <button
                     onclick="window.location.href='../Order/order.html'"
@@ -270,6 +457,33 @@
                 <div class="card-body">
                   <h5 class="card-title">Cheeseburger</h5>
                   <p class="card-text">Double beef patty with melted cheese.</p>
+                  <button style="color: rgb(174, 177, 180);" class="btn btn-sm  rate-btn">
+                    Rate This Item ★
+                  </button>
+                  <!-- Rating Section (hidden by default) -->
+                  <div class="rating-section">
+                    <div class="mb-2">
+                      
+                      <input type="text" class="form-control rater-name" placeholder="Enter Your Name" />
+                    </div>
+                    <div class="mb-3">
+
+                      <div class="d-flex justify-content-between">
+                        <span class="star" data-value="1">☆</span>
+                        <span class="star" data-value="2">☆</span>
+                        <span class="star" data-value="3">☆</span>
+                        <span class="star" data-value="4">☆</span>
+                        <span class="star" data-value="5">☆</span>
+                        <button style="background-color: #ffa500;" class="btn  submit-rating">
+                          Rate
+                        </button>
+                      </div>
+                      
+                      <input type="hidden" class="selected-rating" value="0" />
+                     
+                    </div>
+                   
+                  </div>
                   <p class="price">469</p>
                   <button
                     onclick="window.location.href='../Order/order.html'"
@@ -291,6 +505,33 @@
                 <div class="card-body">
                   <h5 class="card-title">Cheeseburger</h5>
                   <p class="card-text">Double beef patty with melted cheese.</p>
+                  <button style="color: rgb(174, 177, 180);" class="btn btn-sm  rate-btn">
+                    Rate This Item ★
+                  </button>
+                  <!-- Rating Section (hidden by default) -->
+                  <div class="rating-section">
+                    <div class="mb-2">
+                      
+                      <input type="text" class="form-control rater-name" placeholder="Enter Your Name" />
+                    </div>
+                    <div class="mb-3">
+
+                      <div class="d-flex justify-content-between">
+                        <span class="star" data-value="1">☆</span>
+                        <span class="star" data-value="2">☆</span>
+                        <span class="star" data-value="3">☆</span>
+                        <span class="star" data-value="4">☆</span>
+                        <span class="star" data-value="5">☆</span>
+                        <button style="background-color: #ffa500;" class="btn  submit-rating">
+                          Rate
+                        </button>
+                      </div>
+                      
+                      <input type="hidden" class="selected-rating" value="0" />
+                     
+                    </div>
+                   
+                  </div>
                   <p class="price">499</p>
                   <button
                     onclick="window.location.href='../Order/order.html'"
@@ -764,7 +1005,93 @@
       </div>
     </div>
 
-    <!-- Bootstrap JS -->
+    <footer class="py-5 bg-dark text-white">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <h5 class="fw-bold mb-3">Luminary</h5>
+            <p>
+              Delivering exceptional dining experiences since 2010. Our passion
+              for food and service shines in every dish we prepare.
+            </p>
+            <div class="social-icons">
+              <a href="#" class="text-white me-3"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="#" class="text-white me-3"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" class="text-white me-3"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="text-white"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+            <h5 class="fw-bold mb-3">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a
+                  href="../Home/Home.html"
+                  class="text-white text-decoration-none"
+                  >Home</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="../About/About.html"
+                  class="text-white text-decoration-none"
+                  >About Us</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="../Menu/Menu.html"
+                  class="text-white text-decoration-none"
+                  >Menu</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="../Home/Home.html"
+                  class="text-white text-decoration-none"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h5 class="fw-bold mb-3">Contact Info</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <i class="fas fa-map-marker-alt me-2"></i> Debre Berhan
+                University, Ethiopia
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-phone me-2"></i> +251945801419
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-envelope me-2"></i> info@markan.com
+              </li>
+              <li>
+                <i class="fas fa-clock me-2"></i> Open: 1:30 - 5:00 Ethiopian
+                Time
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr class="my-4 bg-secondary" />
+        <div class="row">
+          <div class="col-md-6 text-center text-md-start">
+            <p class="mb-0">&copy; 2025 Markan. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../Menu/Menu.js"></script>
   </body>
 </html>

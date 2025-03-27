@@ -91,9 +91,13 @@ document.getElementById("popupOrderOption").textContent =
     orderOptionValue === "delivery" ? "Delivery" : "Restaurant Pickup";
 document.getElementById("popupPaymentMethod").textContent =
     paymentMethodValue;
-document.getElementById("popupOrderNumber").textContent = Math.floor(
+document.getElementById("popupOrderNumber").textContent= Math.floor(
     Math.random() * 1000000
 );
+User_Name = document.getElementById("popupName").textContent
+Order_Number =  document.getElementById("popupOrderNumber").textContent
+localStorage.setItem("lastOrderNumber", Order_Number);
+localStorage.setItem("User_Name", User_Name);
 document.getElementById("popupTime").textContent =
     Math.floor(Math.random() * 30) + 10;
 
@@ -110,3 +114,36 @@ function closePopup() {
 popup.classList.add("hidden");
 overlay.classList.add("hidden");
 }
+
+// Tracking Section
+document.getElementById("trackOrderBtn").addEventListener("click", function() {
+  const inputOrderNum = document.getElementById("trackingNumberInput").value.trim();
+  const savedOrderNum = localStorage.getItem("lastOrderNumber"); 
+  const resultDiv = document.getElementById("trackingResult");
+
+  if (!inputOrderNum) {
+    resultDiv.innerHTML = `<div class="alert alert-warning">Please enter an order number.</div>`;
+    return;
+  }
+
+  if (inputOrderNum === savedOrderNum) {
+    if (inputOrderNum === savedOrderNum) {
+      const statuses = ["Accepted", "Preparing", "Cooking", "Out for Delivery"];
+      const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];//random status
+      resultDiv.innerHTML = `
+        <div class="alert alert-success">
+          <strong>Order Found!</strong><br>
+          Status: <span class="badge bg-dark">${randomStatus}</span>
+        </div>
+      `;
+    }
+    
+  } else {
+    resultDiv.innerHTML = `
+      <div class="alert alert-danger">
+        <strong>Order Not Found.</strong><br>
+        Please check your order number and try again.
+      </div>
+    `;
+  }
+});

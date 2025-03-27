@@ -3,9 +3,9 @@ const heroDescription = document.getElementById('hero-description');
 const heroImage = document.getElementById('hero-image');
 
 const texts = [
-  { heading: "Welcome to Markan", description: "Delicious food delivered to your doorstep. Order now and enjoy the best meals in University!" },
-  { heading: "Fresh Ingredients", description: "We use only the freshest ingredients to prepare your meals. Taste the difference!" },
-  { heading: "Fast Delivery", description: "Get your food delivered in no time. We guarantee fast and reliable service!" }
+  { heading: "Big Flavors", description: "Delicious food delivered to your doorstep. Order now and enjoy the best meals in University!" },
+  { heading: "Fresh Ingredients", description: "We use only the freshest, finest ingredients to prepare your meals. Taste the delicious difference!" },
+  { heading: "Fast Delivery", description: "Get your food delivered in no time—fresh, hot, and on the way! We guarantee fast and reliable service!" }
 ];
 
 const images = [
@@ -30,7 +30,7 @@ function changeContent() {
     heroDescription.textContent = texts[currentIndex].description;
     heroImage.src = images[currentIndex];
 
-    // Remove "out" animation classes and add "in" animation classes
+    // Remove "out" animation  and add "in" animation 
     heroHeading.classList.remove('animate-text');
     heroDescription.classList.remove('animate-text');
     heroImage.classList.remove('animate-image-out');
@@ -48,14 +48,13 @@ function changeContent() {
   }, 750); // Half of the animation duration (1.5s)
 }
 
-// Change content every 5 seconds
-setInterval(changeContent, 8000);
+setInterval(changeContent, 6000);
 
 
 
 
 
-// Get all audio elements
+// audio elements
     const welcomeAudio = document.getElementById('welcomeAudio');
     const menuExitAudio = document.getElementById('menuExitAudio');
     const menuListAudio = document.getElementById('menuListAudio');
@@ -84,7 +83,7 @@ setInterval(changeContent, 8000);
 
     // Function to stop all sounds
     function stopAllSounds() {
-      // Pause and reset all audio elements
+      
       welcomeAudio.pause();
       welcomeAudio.currentTime = 0;
       menuExitAudio.pause();
@@ -105,20 +104,20 @@ setInterval(changeContent, 8000);
       hideSoundControl();
     }
 
-    // Event listener for the X button
+    //  X button
     stopSoundButton.addEventListener('click', stopAllSounds);
 
-    // Function to start the countdown
+    //  start the countdown
     function startCountdown() {
-      let countdown = 5; // 5-second countdown
-      showSoundControl(); // Show the sound control div
+      let countdown = 5; 
+      showSoundControl(); 
 
       // Update the countdown text every second
       countdownInterval = setInterval(() => {
         countdownText.textContent = countdown;
         countdown--;
 
-        // If countdown reaches 0, play the welcome audio
+        
         if (countdown < 0) {
           clearInterval(countdownInterval); // Stop the countdown
           document.getElementById('countdown').style.display = 'none'; // Hide countdown text
@@ -130,7 +129,7 @@ setInterval(changeContent, 8000);
             alert('Audio playback failed. Please interact with the page to enable sound.');
           });
         }
-      }, 1000); // Update every 1 second
+      }, 1000); 
     }
 
     // Start the countdown only after user interaction
@@ -139,7 +138,7 @@ setInterval(changeContent, 8000);
       if (!countdownInterval) {
         startCountdown();
       }
-    }, { once: true }); // Run only once
+    }, { once: true }); 
 
     // Variables to store user input
     let selectedPizza = null;
