@@ -1,6 +1,6 @@
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'lacquer';
     color: #333;
 }
 
@@ -16,18 +16,12 @@ body {
 }
 
 /* About Hero Section */
-.about-hero {
-    padding: 100px 0;
-    background: linear-gradient(rgba(248, 249, 250, 0.9), rgba(248, 249, 250, 0.9)), 
-                url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80');
-    background-size: cover;
-    background-position: center;
-}
 
 
 
     .our-story-section {
         position: relative;
+        
     }
     
     .section-header {
@@ -35,6 +29,7 @@ body {
     }
     
     .title-divider {
+        
         width: 80px;
         height: 4px;
         background: #ffa500;

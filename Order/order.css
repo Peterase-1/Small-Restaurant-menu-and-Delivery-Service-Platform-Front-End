@@ -1,6 +1,6 @@
 body {
   background-color: #ffffff;
-  font-family: "poppins", sans-serif;
+  font-family: 'lacquer','poppins';
 }
 
 .container h1 {
@@ -17,6 +17,7 @@ body {
   outline: none;
   border-radius: 0;
   padding-top: 40px;
+  font-family: 'poppins',Arial, Helvetica, sans-serif;
 }
 .order-section img {
   max-width: 70%;

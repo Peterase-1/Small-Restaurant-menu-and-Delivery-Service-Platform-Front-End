@@ -1,5 +1,6 @@
+
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: 'lacquer','poppins';
 }
 
 .nav-tabs .nav-link {
@@ -58,9 +59,10 @@ body {
 }
 
 .price {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #ffa500;
+  font-family: 'poppins';
 }
 
 .price::before {
