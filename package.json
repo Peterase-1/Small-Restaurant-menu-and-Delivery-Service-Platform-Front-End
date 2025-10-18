@@ -21,13 +21,9 @@
   "devDependencies": {
     "http-server": "^14.1.1"
   },
-  "dependencies": {
-    "bootstrap": "^5.3.0",
-    "font-awesome": "^6.7.2"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/luminary-restaurant-platform.git"
+    "url": "https://github.com/Peterase-1/Small-Restaurant-menu-and-Delivery-Service-Platform-Front-End.git"
   },
-  "homepage": "https://your-username.github.io/luminary-restaurant-platform"
+  "homepage": "https://peterase-1.github.io/Small-Restaurant-menu-and-Delivery-Service-Platform-Front-End"
 }
