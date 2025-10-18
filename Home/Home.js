@@ -4,6 +4,11 @@ const heroImage = document.getElementById("hero-image");
 
 const texts = [
   {
+    heading: "Welcome to Luminary",
+    description:
+      "Delicious food delivered to your doorstep. Explore More and enjoy the best meals in University!",
+  },
+  {
     heading: "Big Flavors",
     description:
       "Delicious food delivered to your doorstep. Order now and enjoy the best meals in University!",
@@ -21,9 +26,10 @@ const texts = [
 ];
 
 const images = [
-  "../Images/Home Page Hero/Sliding Image 2 (2).png",
-  "../Images/Home Page Hero/Sliding Image 3 (2).png",
-  "../Images/Home Page Hero/Sliding Image 4.png",
+  "Images/Home Page Hero/Sliding Image 1.png",
+  "Images/Home Page Hero/Sliding Image 2 (2).png",
+  "Images/Home Page Hero/Sliding Image 3 (2).png",
+  "Images/Home Page Hero/Sliding Image 4.png",
 ];
 
 let currentIndex = 0;
